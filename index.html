@@ -50,6 +50,22 @@ gradient blob, or literal software-architecture wiring diagram.
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "SPAN Labs: the idea in half a minute",
+  "description": "A short silent film about building tools and shipping them.",
+  "thumbnailUrl": "https://spanlabs.tech/media/span-labs-film-poster.jpg",
+  "contentUrl": "https://spanlabs.tech/media/span-labs-film.mp4",
+  "uploadDate": "2026-10-17",
+  "duration": "PT31S",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SPAN Labs LLC"
+  }
+}
+</script>
 <style>
   /* Single navy-and-brass theme by design: the page looks the same regardless of the viewer's light/dark setting. */
   :root {
@@ -428,6 +444,49 @@ gradient blob, or literal software-architecture wiring diagram.
     color: var(--ink-faint);
   }
 
+  /* ---------- film ---------- */
+  #film .section-head { margin-bottom: 32px; }
+  .film-sub {
+    margin: 10px 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+  .film-plate video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .film-controls { display: flex; align-items: center; gap: 14px; margin-top: 16px; }
+  .film-controls .btn { min-width: 6.5rem; justify-content: center; }
+  .film-controls .btn[hidden] { display: none; }
+  .film-details { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 12px; }
+  .film-details summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .film-details summary:hover { color: var(--ink); }
+  .film-details summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .film-text {
+    margin-top: 12px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+  @media (max-width: 600px) {
+    #film { padding: 64px 0; }
+    .film-plate { padding: 14px; }
+  }
+
   ::selection { background: var(--brass); color: var(--bg); }
 </style>
 </head>
@@ -514,6 +573,72 @@ gradient blob, or literal software-architecture wiring diagram.
       <span>Service</span><span class="motto-sep">&middot;</span><span>Quality</span><span class="motto-sep">&middot;</span><span>Transparency</span>
     </div>
   </div>
+
+  <!-- ===== FILM ===== -->
+  <section id="film">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker"><span class="sheet-ref">FILM</span><span class="rule"></span></div>
+          <h2>The idea in half a minute</h2>
+          <p class="film-sub">SILENT FILM &middot; CAPTIONS ON SCREEN</p>
+        </div>
+      </div>
+
+      <div class="plate film-plate">
+        <video id="film-video" muted autoplay loop playsinline preload="metadata" poster="media/span-labs-film-poster.jpg" width="1280" height="720" aria-label="SPAN Labs film, silent, with captions on screen" aria-describedby="film-text">
+          <source src="media/span-labs-film.mp4" type="video/mp4">
+        </video>
+        <div class="film-controls">
+          <button id="film-btn" class="btn" type="button" aria-label="Pause the film" aria-controls="film-video" hidden>Pause</button>
+        </div>
+        <details class="film-details">
+          <summary>Read the film as text</summary>
+          <div id="film-text" class="film-text">A silent film drawn as a blueprint of a bridge being built across a gap. The words on screen read:
+
+Scene one. Heavy blocks and a long row of marks appear on a blueprint grid, then calmly dissolve into an empty plate.
+A large team is optional.
+So is a long wait.
+
+Scene two. A thin brass line sweeps across the gap between two bridge towers like a timeline marker.
+Time to market is critical.
+The right moment is now.
+
+Scene three. A bridge draws itself across the gap while a small storefront symbol settles on the far bank.
+We build the tool.
+You run the business.
+
+Scene four. Drafting instruments and small linked nodes appear around the finished bridge.
+Experts with the right tools
+are here, ready to build.
+
+Scene five. Check marks and small pulses travel along the bridge deck in a steady, repeating cycle.
+A known process,
+steadily automated.
+
+Scene six. Six small framed pictures show a shop, a clinic, a studio, a delivery truck, an office and a factory, each with its own bridge drawn across a gap.
+Open to any business,
+each gap gets its own bridge.
+
+Scene seven. Decorative flourishes and extra scaffolding fall away, leaving a clean, glowing bridge.
+Pay for the product,
+not for the ornament.
+
+Scene eight. The finished bridge holds still while a single brass tick appears on the far bank like an open door.
+The door is open.
+Tell us what you're building.
+
+Scene nine. A blueprint title block frames the closing text.
+Service &middot; Quality &middot; Transparency
+SPAN Labs &middot; spanlabs.tech</div>
+        </details>
+        <div class="plate-caption">
+          <span>FIG. 02 &mdash; THE IDEA, DRAWN</span>
+          <span>31 SEC</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== STATS ===== -->
   <div class="stats">
@@ -819,6 +944,79 @@ gradient blob, or literal software-architecture wiring diagram.
           submitBtn.textContent = 'Send brief →';
         });
     });
+  })();
+
+  (function () {
+    try {
+      var v = document.getElementById('film-video');
+      var b = document.getElementById('film-btn');
+      if (!v || !b) return;
+      var userPaused = false;   // the visitor paused it (or it could not autoplay): never auto-resume
+      var autoPaused = false;   // we paused it because it scrolled out of view
+
+      function sync() {
+        var on = !v.paused && !v.ended;
+        b.textContent = on ? 'Pause' : 'Play';
+        b.setAttribute('aria-label', on ? 'Pause the film' : 'Play the film');
+      }
+      function tryPlay() {
+        var p = v.play();
+        if (p && p.catch) {
+          p.catch(function (err) {
+            // Only a policy block counts; an AbortError from our own pause() does not.
+            if (err && err.name === 'NotAllowedError') { userPaused = true; }
+            sync();
+          });
+        }
+      }
+
+      b.hidden = false;
+      ['play', 'playing', 'pause', 'ended', 'emptied', 'loadeddata'].forEach(function (ev) {
+        v.addEventListener(ev, sync);
+      });
+
+      var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+      if (mq && mq.matches) {
+        userPaused = true;
+        v.removeAttribute('autoplay');
+        v.autoplay = false;
+        v.preload = 'none';
+        v.pause();
+        v.load();
+      } else {
+        tryPlay();
+      }
+      if (mq && mq.addEventListener) {
+        mq.addEventListener('change', function (e) {
+          if (e.matches) { userPaused = true; autoPaused = false; v.pause(); }
+        });
+      }
+
+      b.addEventListener('click', function () {
+        if (v.paused || v.ended) {
+          userPaused = false;
+          autoPaused = false;
+          tryPlay();
+        } else {
+          userPaused = true;
+          v.pause();
+        }
+        sync();
+      });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          var e = entries[entries.length - 1];
+          if (e.intersectionRatio < 0.25) {
+            if (!v.paused) { autoPaused = true; v.pause(); }
+          } else if (autoPaused && !userPaused) {
+            autoPaused = false;
+            tryPlay();
+          }
+        }, { threshold: [0, 0.25, 0.5, 1] }).observe(v);
+      }
+      sync();
+    } catch (err) { /* the film is optional; never break the page */ }
   })();
 </script>
 </body>
