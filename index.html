@@ -464,24 +464,6 @@ gradient blob, or literal software-architecture wiring diagram.
   .film-controls { display: flex; align-items: center; gap: 14px; margin-top: 16px; }
   .film-controls .btn { min-width: 6.5rem; justify-content: center; }
   .film-controls .btn[hidden] { display: none; }
-  .film-details { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 12px; }
-  .film-details summary {
-    cursor: pointer;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-  .film-details summary:hover { color: var(--ink); }
-  .film-details summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
-  .film-text {
-    margin-top: 12px;
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    white-space: pre-line;
-    overflow-wrap: anywhere;
-  }
   @media (max-width: 600px) {
     #film { padding: 64px 0; }
     .film-plate { padding: 14px; }
@@ -586,52 +568,12 @@ gradient blob, or literal software-architecture wiring diagram.
       </div>
 
       <div class="plate film-plate">
-        <video id="film-video" muted autoplay loop playsinline preload="metadata" poster="media/span-labs-film-poster.jpg" width="1280" height="720" aria-label="SPAN Labs film, silent, with captions on screen" aria-describedby="film-text">
+        <video id="film-video" muted autoplay loop playsinline preload="metadata" poster="media/span-labs-film-poster.jpg" width="1280" height="720" aria-label="SPAN Labs film, silent, with captions on screen">
           <source src="media/span-labs-film.mp4" type="video/mp4">
         </video>
         <div class="film-controls">
           <button id="film-btn" class="btn" type="button" aria-label="Pause the film" aria-controls="film-video" hidden>Pause</button>
         </div>
-        <details class="film-details">
-          <summary>Read the film as text</summary>
-          <div id="film-text" class="film-text">A silent film drawn as a blueprint of a bridge being built across a gap. The words on screen read:
-
-Scene one. Heavy blocks and a long row of marks appear on a blueprint grid, then calmly dissolve into an empty plate.
-A large team is optional.
-So is a long wait.
-
-Scene two. A thin brass line sweeps across the gap between two bridge towers like a timeline marker.
-Time to market is critical.
-The right moment is now.
-
-Scene three. A bridge draws itself across the gap while a small storefront symbol settles on the far bank.
-We build the tool.
-You run the business.
-
-Scene four. Drafting instruments and small linked nodes appear around the finished bridge.
-Experts with the right tools
-are here, ready to build.
-
-Scene five. Check marks and small pulses travel along the bridge deck in a steady, repeating cycle.
-A known process,
-steadily automated.
-
-Scene six. Six small framed pictures show a shop, a clinic, a studio, a delivery truck, an office and a factory, each with its own bridge drawn across a gap.
-Open to any business,
-each gap gets its own bridge.
-
-Scene seven. Decorative flourishes and extra scaffolding fall away, leaving a clean, glowing bridge.
-Pay for the product,
-not for the ornament.
-
-Scene eight. The finished bridge holds still while a single brass tick appears on the far bank like an open door.
-The door is open.
-Tell us what you're building.
-
-Scene nine. A blueprint title block frames the closing text.
-Service &middot; Quality &middot; Transparency
-SPAN Labs &middot; spanlabs.tech</div>
-        </details>
         <div class="plate-caption">
           <span>FIG. 02 &mdash; THE IDEA, DRAWN</span>
           <span>31 SEC</span>
