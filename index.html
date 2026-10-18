@@ -11,9 +11,8 @@ Type: display = system serif stack (Iowan Old Style/Palatino/Georgia) for gravit
 body = system sans stack for reading; mono = system monospace for labels/data/nav — reads
 as a drafting instrument, ties directly to "architect" subject, costs nothing to load.
 Layout: a single scroll structured like a bound set of drawing sheets (A-01…A-05 references,
-hairline rules, corner-bracket "plates") with a live inline-SVG bridge blueprint as the hero
-centerpiece — an intuitive, non-technical engineering metaphor — instead of a stock photo,
-gradient blob, or literal software-architecture wiring diagram.
+hairline rules, corner-bracket "plates") with the brand film (a drawn bridge being built) as the hero
+centrepiece instead of a stock photo or gradient blob.
 -->
 <title>SPAN Labs | Custom Software &amp; Enterprise Architecture for Any Scale</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='62' font-size='28' text-anchor='middle' font-family='monospace' font-weight='bold' fill='%23007acc'%3E%26lt;span%26gt;%3C/text%3E%3C/svg%3E" />
@@ -265,30 +264,6 @@ gradient blob, or literal software-architecture wiring diagram.
   .plate::before { top: -1px; left: -1px; border-top: 2px solid var(--brass); border-left: 2px solid var(--brass); }
   .plate::after { bottom: -1px; right: -1px; border-bottom: 2px solid var(--brass); border-right: 2px solid var(--brass); }
 
-  .plate-caption {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-    padding-top: 12px;
-    border-top: 1px solid var(--line);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    color: var(--ink-faint);
-  }
-
-  /* schematic */
-  .schematic text { font-family: var(--font-mono); fill: var(--ink-soft); }
-  .schematic .node-label { font-size: 9px; letter-spacing: 0.08em; }
-  .schematic .box { fill: var(--bg-raised); stroke: var(--line-strong); stroke-width: 1; }
-  .schematic .box-accent { fill: var(--bg-raised); stroke: var(--brass); stroke-width: 1.4; }
-  .schematic .wire { stroke: var(--line-strong); stroke-width: 1; fill: none; }
-  .schematic .wire-faint { stroke: var(--line); stroke-width: 1; fill: none; }
-  .schematic .wire-accent { stroke: var(--brass); stroke-width: 1.5; fill: none; }
-  .schematic .wire-deck { stroke: var(--ink-soft); stroke-width: 3; fill: none; }
-  .schematic .pulse { fill: var(--slate); }
-  .schematic .tag { font-size: 7px; fill: var(--ink-faint); letter-spacing: 0.08em; }
-
   /* ---------- motto ---------- */
   .motto { padding: 22px 0; border-bottom: 1px solid var(--line); }
   .motto-inner {
@@ -444,22 +419,45 @@ gradient blob, or literal software-architecture wiring diagram.
     color: var(--ink-faint);
   }
 
-  /* ---------- film ---------- */
-  #film .section-head { margin-bottom: 32px; }
+  /* ---------- hero film ---------- */
+  .film-frame { position: relative; }
   .film-plate video {
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
-    border: 1px solid var(--line);
     background: var(--bg);
   }
-  .film-controls { display: flex; align-items: center; gap: 14px; margin-top: 16px; }
-  .film-controls .btn { min-width: 6.5rem; justify-content: center; }
-  .film-controls .btn[hidden] { display: none; }
+  .film-plate { padding: 10px; }
+  .film-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--brass);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    border: 1px solid var(--line-strong);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .film-btn:hover { color: var(--brass-strong); border-color: var(--brass); }
+  .film-btn[hidden] { display: none; }
+  .film-btn svg { width: 20px; height: 20px; fill: currentColor; display: block; }
+  .film-btn .ico-play { display: none; }
+  .film-btn[data-state="paused"] .ico-pause { display: none; }
+  .film-btn[data-state="paused"] .ico-play { display: block; }
+  @media (max-width: 900px) {
+    .hero-grid .film-plate { order: -1; }
+  }
   @media (max-width: 600px) {
-    #film { padding: 64px 0; }
-    .film-plate { padding: 14px; }
+    .film-plate { padding: 8px; }
+    .film-btn { width: 40px; height: 40px; right: 8px; top: 8px; }
   }
 
   ::selection { background: var(--brass); color: var(--bg); }
@@ -497,46 +495,15 @@ gradient blob, or literal software-architecture wiring diagram.
         </div>
       </div>
 
-      <div class="plate">
-        <svg class="schematic" viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A blueprint-style line drawing of a suspension bridge, with a single light travelling steadily across the deck">
-          <text x="8" y="16" class="tag">REF: STRUCTURE&ndash;01</text>
-          <text x="552" y="16" class="tag" text-anchor="end">SHEET A</text>
-
-          <!-- ground -->
-          <path class="wire-faint" d="M30,266 l8,8 M62,266 l8,8 M94,266 l8,8 M126,266 l8,8 M158,266 l8,8 M190,266 l8,8 M222,266 l8,8 M254,266 l8,8 M286,266 l8,8 M318,266 l8,8 M350,266 l8,8 M382,266 l8,8 M414,266 l8,8 M446,266 l8,8 M478,266 l8,8 M510,266 l8,8"></path>
-          <path class="wire" d="M20,266 H540"></path>
-
-          <!-- anchors -->
-          <rect class="box" x="18" y="204" width="20" height="26"></rect>
-          <rect class="box" x="522" y="204" width="20" height="26"></rect>
-
-          <!-- towers -->
-          <rect class="box-accent" x="146" y="58" width="8" height="172"></rect>
-          <rect class="box-accent" x="406" y="58" width="8" height="172"></rect>
-
-          <!-- main cable -->
-          <path class="wire-accent" d="M40,210 C90,140 110,60 150,60 C210,60 230,170 280,170 C330,170 350,60 410,60 C450,60 470,140 520,210"></path>
-
-          <!-- suspenders -->
-          <path class="wire" d="M70,166 V188 M100,112 V188 M130,76 V188 M180,76 V188 M210,100 V188 M240,130 V188 M270,160 V188 M310,160 V188 M340,130 V188 M370,100 V188 M400,76 V188 M430,76 V188 M460,112 V188 M490,166 V188"></path>
-
-          <!-- deck -->
-          <path class="wire-deck" d="M40,190 H520"></path>
-
-          <!-- dimension line -->
-          <path class="wire" d="M40,300 V294 M520,300 V294 M40,300 H520"></path>
-          <text x="280" y="288" class="node-label" text-anchor="middle">SPAN</text>
-
-          <circle class="pulse" r="2.6">
-            <animateMotion dur="4.5s" repeatCount="indefinite" path="M40,190 H520" />
-          </circle>
-
-          <text x="8" y="322" class="tag">ENGINEERED TO HOLD</text>
-          <text x="552" y="322" class="tag" text-anchor="end">BUILT FOR SCALE</text>
-        </svg>
-        <div class="plate-caption">
-          <span>FIG. 01 &mdash; BUILT LIKE IT HAS TO HOLD</span>
-          <span>NOT TO SCALE</span>
+      <div class="plate film-plate">
+        <div class="film-frame">
+          <video id="film-video" muted autoplay loop playsinline preload="auto" poster="media/span-labs-film-poster.jpg" width="1280" height="720" aria-label="SPAN Labs film, silent, with captions on screen">
+            <source src="media/span-labs-film.mp4" type="video/mp4">
+          </video>
+          <button id="film-btn" class="film-btn" type="button" aria-label="Pause the film" aria-controls="film-video" data-state="playing" hidden>
+            <svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="6" y="5" width="4" height="14"></rect><rect x="14" y="5" width="4" height="14"></rect></svg>
+            <svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z"></path></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -549,26 +516,6 @@ gradient blob, or literal software-architecture wiring diagram.
     </div>
   </div>
 
-  <!-- ===== FILM ===== -->
-  <section id="film">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="section-kicker"><span class="sheet-ref">FILM</span><span class="rule"></span></div>
-          <h2>The idea in half a minute</h2>
-        </div>
-      </div>
-
-      <div class="plate film-plate">
-        <video id="film-video" muted autoplay loop playsinline preload="metadata" poster="media/span-labs-film-poster.jpg" width="1280" height="720" aria-label="SPAN Labs film, silent, with captions on screen">
-          <source src="media/span-labs-film.mp4" type="video/mp4">
-        </video>
-        <div class="film-controls">
-          <button id="film-btn" class="btn" type="button" aria-label="Pause the film" aria-controls="film-video" hidden>Pause</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ===== STATS ===== -->
   <div class="stats">
@@ -886,7 +833,7 @@ gradient blob, or literal software-architecture wiring diagram.
 
       function sync() {
         var on = !v.paused && !v.ended;
-        b.textContent = on ? 'Pause' : 'Play';
+        b.setAttribute('data-state', on ? 'playing' : 'paused');
         b.setAttribute('aria-label', on ? 'Pause the film' : 'Play the film');
       }
       function tryPlay() {
