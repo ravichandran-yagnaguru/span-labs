@@ -14,15 +14,17 @@ Layout: a single scroll structured like a bound set of drawing sheets (A-01…A-
 hairline rules, corner-bracket "plates") with the brand film (a drawn bridge being built) as the hero
 centrepiece instead of a stock photo or gradient blob.
 -->
-<title>SPAN Labs | Custom Software &amp; Enterprise Architecture for Any Scale</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='62' font-size='28' text-anchor='middle' font-family='monospace' font-weight='bold' fill='%23007acc'%3E%26lt;span%26gt;%3C/text%3E%3C/svg%3E" />
+<title>SPAN Labs | Custom Software and Enterprise Architecture</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="/brand/favicon.svg" />
+<link rel="apple-touch-icon" href="/brand/favicon-180.png" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Custom software and enterprise architecture for businesses of any size. Senior-led, AI-accelerated, and transparent. From first app to global platform." />
+<meta name="description" content="Senior-led custom software and enterprise architecture with 25+ years in retail and financial services. Architecture reviews, discovery sprints, and full builds." />
 <link rel="canonical" href="https://spanlabs.tech/" />
 <meta name="theme-color" content="#0f1b2d" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="SPAN Labs" />
-<meta property="og:title" content="SPAN Labs | Custom Software &amp; Enterprise Architecture for Any Scale" />
+<meta property="og:title" content="SPAN Labs | Custom Software and Enterprise Architecture" />
 <meta property="og:description" content="Senior-led custom software and enterprise architecture, from a first business app to a global platform. Service, quality, transparency." />
 <meta property="og:url" content="https://spanlabs.tech/" />
 <meta property="og:image" content="https://spanlabs.tech/og-image.png" />
@@ -35,9 +37,12 @@ centrepiece instead of a stock photo or gradient blob.
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "address": { "@type": "PostalAddress", "addressLocality": "Cary", "addressRegion": "NC", "addressCountry": "US" },
   "name": "SPAN Labs LLC",
   "alternateName": "SPAN Labs",
+  "logo": "https://spanlabs.tech/brand/favicon-512.png",
   "url": "https://spanlabs.tech/",
+  "email": "hello@spanlabs.tech",
   "description": "Custom software and enterprise architecture for businesses of any size, backed by 25+ years of enterprise architecture experience.",
   "serviceType": ["Custom software development", "Enterprise architecture", "System modernization", "Business process automation"],
   "member": {
@@ -45,6 +50,7 @@ centrepiece instead of a stock photo or gradient blob.
     "name": "Seetharaman Palanichamy",
     "alternateName": "SP",
     "jobTitle": "Advisor",
+    "knowsAbout": ["Enterprise architecture", "Commerce platforms", "Cloud and platform modernization", "Financial services technology", "Enterprise AI adoption"],
     "sameAs": ["https://www.linkedin.com/in/seetharamanpalanichamy/"]
   }
 }
@@ -164,7 +170,11 @@ centrepiece instead of a stock photo or gradient blob.
     align-items: baseline;
     gap: 6px;
   }
-  .wordmark .dot { color: var(--brass); }
+  .wordmark { align-items: center; gap: 12px; }
+  .wm-mark { width: 40px; height: 24px; flex: none; }
+  .wm-text { display: flex; flex-direction: column; line-height: 1; }
+  .wm-name { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; letter-spacing: -0.01em; color: var(--ink); }
+  .wm-sub { font-family: var(--font-mono); font-weight: 600; font-size: 0.6rem; letter-spacing: 0.46em; color: var(--brass); margin-top: 4px; }
   .nav-links {
     display: flex;
     gap: 28px;
@@ -460,6 +470,25 @@ centrepiece instead of a stock photo or gradient blob.
     .film-btn { width: 40px; height: 40px; right: 8px; top: 8px; }
   }
 
+  .card-cta { margin-top: 22px; }
+  .cap-card .scale-list { margin-top: 4px; }
+  .cap-card .lead-in { color: var(--ink-soft); margin: 0 0 14px; font-size: 0.96rem; }
+  .reply-note { margin-top: 14px; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--ink-faint); text-align: center; }
+
+  /* ---------- cookie banner ---------- */
+  .consent {
+    position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 60;
+    max-width: 560px; margin: 0 auto;
+    background: var(--bg-raised); border: 1px solid var(--line-strong);
+    padding: 18px 20px; display: none; box-shadow: 0 8px 30px rgba(0,0,0,.45);
+  }
+  .consent.show { display: block; }
+  .consent p { margin: 0 0 14px; font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5; }
+  .consent p a { color: var(--brass-strong); }
+  .consent-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .consent-actions .btn { padding: 8px 16px; }
+  .footer-link-btn { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+
   ::selection { background: var(--brass); color: var(--bg); }
 </style>
 </head>
@@ -467,13 +496,17 @@ centrepiece instead of a stock photo or gradient blob.
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="wordmark" href="#top">SPAN LABS<span class="dot">&middot;</span></a>
+    <a class="wordmark" href="#top" aria-label="SPaN Labs, home">
+      <svg class="wm-mark" viewBox="0 0 120 72" fill="none" stroke="#c6a15b" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 56 L24 14 Q60 66 96 14 L116 56" stroke-width="4"/><path d="M24 12 V68 M96 12 V68" stroke-width="5"/><path d="M36 28.4 V56 M48 37.1 V56 M60 40 V56 M72 37.1 V56 M84 28.4 V56" stroke-width="3"/><path d="M0 56 H120" stroke="#e9e4d6" stroke-width="4"/></svg>
+      <span class="wm-text"><span class="wm-name">SPaN</span><span class="wm-sub">LABS</span></span>
+    </a>
     <div class="nav-cta">
       <ul class="nav-links nav-links-wrap">
         <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#approach">Why us</a></li>
         <li><a href="#team">Team</a></li>
-        <li><a href="#situations">When to call us</a></li>
+        <li><a href="#start-here">How we start</a></li>
       </ul>
       <a class="btn btn-primary" href="#contact">Start a project</a>
     </div>
@@ -488,7 +521,7 @@ centrepiece instead of a stock photo or gradient blob.
       <div>
         <div class="eyebrow">Custom software &amp; enterprise architecture</div>
         <h1>Custom software, built like it has to hold.</h1>
-        <p class="lede">From a booking tool for a growing business to a platform serving millions, the same senior engineering sits behind every build. Backed by 25+ years of enterprise architecture experience, delivered with AI-accelerated speed and none of the usual overhead.</p>
+        <p class="lede">From a booking tool for a growing business to a platform that has to scale, the same senior engineering sits behind every build. Backed by 25+ years of enterprise architecture experience in retail and financial services.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">Start a project &rarr;</a>
           <a class="btn" href="#capabilities">See what we build</a>
@@ -497,7 +530,7 @@ centrepiece instead of a stock photo or gradient blob.
 
       <div class="plate film-plate">
         <div class="film-frame">
-          <video id="film-video" muted autoplay loop playsinline preload="auto" poster="media/span-labs-film-poster.jpg" width="1280" height="720" aria-label="SPAN Labs film, silent, with captions on screen">
+          <video id="film-video" muted autoplay loop playsinline preload="metadata" poster="media/span-labs-film-poster.jpg" width="960" height="540" aria-label="SPAN Labs film, silent, with captions on screen">
             <source src="media/span-labs-film.mp4" type="video/mp4">
           </video>
           <button id="film-btn" class="film-btn" type="button" aria-label="Pause the film" aria-controls="film-video" data-state="playing" hidden>
@@ -520,10 +553,10 @@ centrepiece instead of a stock photo or gradient blob.
   <!-- ===== STATS ===== -->
   <div class="stats">
     <div class="wrap stats-grid">
-      <div class="stat"><b class="num">25+</b><span>Years of enterprise experience</span></div>
-      <div class="stat"><b>Direct</b><span>Access to the engineers, not a rep</span></div>
-      <div class="stat"><b>Flexible</b><span>Scoped to the project, not a template</span></div>
-      <div class="stat"><b>Trusted</b><span>Senior partners for larger builds</span></div>
+      <div class="stat"><b class="num">25+</b><span>Years in enterprise software</span></div>
+      <div class="stat"><b>Retail &amp; finance</b><span>Commerce, banking, and insurance</span></div>
+      <div class="stat"><b class="num">30+</b><span>Engineers led across the US, Europe, and India</span></div>
+      <div class="stat"><b>Certified</b><span>TOGAF 9 &middot; AWS Machine Learning Specialty</span></div>
     </div>
   </div>
 
@@ -552,7 +585,7 @@ centrepiece instead of a stock photo or gradient blob.
           <div class="tag-row"><span class="cap-class">Scale-ups &amp; enterprise</span></div>
           <h3>Platforms &amp; architecture</h3>
           <ul class="scale-list">
-            <li>High-throughput, real-time, streaming, and regulated systems</li>
+            <li>Commerce, financial-services, and other high-stakes systems</li>
             <li>Architecture reviews, performance work, and modernization of what you already run</li>
             <li>Senior architecture leadership without the agency layers</li>
           </ul>
@@ -573,29 +606,75 @@ centrepiece instead of a stock photo or gradient blob.
           <div class="section-kicker"><span class="sheet-ref">A&ndash;02</span><span class="rule"></span></div>
           <h2>What we build</h2>
         </div>
-        <p style="max-width:38ch;color:var(--ink-soft);margin:0;">Four kinds of pressure, each demanding its own kind of engineering &mdash; and each one shows up at any size.</p>
+        <p style="max-width:38ch;color:var(--ink-soft);margin:0;">Four areas where our experience runs deepest.</p>
       </div>
 
       <div class="cap-grid">
         <article class="cap-card">
-          <div class="tag-row"><span class="cap-num">01</span><span class="cap-class">Real-time</span></div>
-          <h3>Built for the crowd</h3>
-          <p>Feeds, messaging, notifications, and presence that hold up when everyone shows up at once.</p>
+          <div class="tag-row"><span class="cap-num">01</span><span class="cap-class">Commerce &amp; retail</span></div>
+          <h3>Platforms that sell</h3>
+          <p>Headless and composable commerce, order management, product information, marketplace integrations, and in-store technology for multi-channel retailers.</p>
         </article>
         <article class="cap-card">
-          <div class="tag-row"><span class="cap-num">02</span><span class="cap-class">Media &amp; streaming</span></div>
-          <h3>Built for the stream</h3>
-          <p>Fast, reliable delivery of video and content at scale &mdash; without the infrastructure bill scaling just as fast.</p>
+          <div class="tag-row"><span class="cap-num">02</span><span class="cap-class">Financial services</span></div>
+          <h3>Systems where accuracy matters</h3>
+          <p>Online banking, insurance, and credit-risk applications, where reliability, auditability, and careful change management come first.</p>
         </article>
         <article class="cap-card">
-          <div class="tag-row"><span class="cap-num">03</span><span class="cap-class">Regulated systems</span></div>
-          <h3>Built for trust</h3>
-          <p>The precision that systems handling money, identity, or health require &mdash; where being wrong isn't an option.</p>
+          <div class="tag-row"><span class="cap-num">03</span><span class="cap-class">Modernization &amp; cloud</span></div>
+          <h3>Moving forward without stopping the business</h3>
+          <p>Legacy migrations, cloud architecture, and platform engineering, plus the standards and governance that keep the result maintainable.</p>
         </article>
         <article class="cap-card">
-          <div class="tag-row"><span class="cap-num">04</span><span class="cap-class">Commerce</span></div>
-          <h3>Built for the rush</h3>
-          <p>Catalog, checkout, and traffic spikes handled cleanly, even on your biggest day of the year.</p>
+          <div class="tag-row"><span class="cap-num">04</span><span class="cap-class">Applied AI</span></div>
+          <h3>AI that works inside a real organization</h3>
+          <p>Adopting generative and agentic AI responsibly: choosing where to start, integrating with existing systems, and governing access and risk as use grows.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker"><span class="sheet-ref">A&ndash;03</span><span class="rule"></span></div>
+          <h2>The experience behind the team</h2>
+        </div>
+        <p style="max-width:38ch;color:var(--ink-soft);margin:0;">Selected work from our advisor's career. Client names are withheld.</p>
+      </div>
+
+      <div class="cap-grid">
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Retail</span></div>
+          <h3>Digital platform for a multi-brand retailer</h3>
+          <p>Led architecture and engineering across headless commerce, order management, product information, and social-commerce and marketplace integrations, and set the architecture standards and governance used across the enterprise.</p>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Retail</span></div>
+          <h3>Marketplaces and in-store technology</h3>
+          <p>Delivered integrations with major global marketplaces for several consumer brands, and piloted a mobile point-of-sale solution in physical stores in Europe and North America.</p>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Banking</span></div>
+          <h3>Online banking for a European retail bank</h3>
+          <p>Designed and built the application, led the team through delivery, then moved design and development to a new offshore team without interrupting the work.</p>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Investment banking</span></div>
+          <h3>Legacy modernization and credit risk</h3>
+          <p>Migrated legacy applications for a UK investment bank and delivered a strategic credit-risk application, leading global teams of 25+ engineers using Agile delivery.</p>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Insurance</span></div>
+          <h3>Large-scale systems integration</h3>
+          <p>Delivered a multi-year integration program for a major insurer, with round-the-clock production support for critical consumer-facing applications.</p>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Enterprise architecture</span></div>
+          <h3>Standards that teams actually follow</h3>
+          <p>Built architecture frameworks, patterns, and review processes used across an enterprise's applications, and led the senior architects responsible for technical solution decisions.</p>
         </article>
       </div>
     </div>
@@ -606,37 +685,77 @@ centrepiece instead of a stock photo or gradient blob.
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="section-kicker"><span class="sheet-ref">A&ndash;03</span><span class="rule"></span></div>
+          <div class="section-kicker"><span class="sheet-ref">A&ndash;04</span><span class="rule"></span></div>
           <h2>Why work with SPAN Labs</h2>
         </div>
-        <p style="max-width:38ch;color:var(--ink-soft);margin:0;">No layers between you and the engineering. That's the whole model.</p>
+        <p style="max-width:38ch;color:var(--ink-soft);margin:0;">A small senior team, and a clear view of how the work gets done.</p>
       </div>
 
       <div class="cap-grid">
         <article class="cap-card">
-          <div class="tag-row"><span class="cap-class">Direct</span></div>
-          <h3>You work directly with the team building it</h3>
-          <p>Every engagement is led by senior engineers from the first conversation to launch &mdash; not handed off partway through.</p>
+          <div class="tag-row"><span class="cap-class">Senior from the start</span></div>
+          <h3>The people scoping it have run it</h3>
+          <p>Our advisor has led delivery teams of 30+ across several time zones. The same experience goes into scoping and reviewing your project, not only into the sales conversation.</p>
         </article>
         <article class="cap-card">
           <div class="tag-row"><span class="cap-class">Scoped to fit</span></div>
           <h3>No fixed packages</h3>
-          <p>Engagements are shaped around what your project actually needs, not a template built for someone else's.</p>
+          <p>Every engagement is shaped around the problem, and most begin with a short architecture review or discovery sprint so the approach is agreed before a larger build.</p>
         </article>
         <article class="cap-card">
-          <div class="tag-row"><span class="cap-class">Built in, not billed</span></div>
-          <h3>Process is second nature</h3>
-          <p>Reliable, secure, and maintainable is how this team builds by default &mdash; and AI-accelerated tooling keeps it fast. You get the rigor without paying for the ceremony.</p>
+          <div class="tag-row"><span class="cap-class">Rigor by default</span></div>
+          <h3>Standards, not ceremony</h3>
+          <p>We bring the architecture standards and review practices used on large enterprise programs, applied at the size your project needs.</p>
         </article>
         <article class="cap-card">
-          <div class="tag-row"><span class="cap-class">Open by design</span></div>
-          <h3>Let's figure it out together</h3>
-          <p>Timeline, scope, and cost are worked out once we understand what you're building &mdash; every project is different.</p>
-        </article>
-        <article class="cap-card span-full">
           <div class="tag-row"><span class="cap-class">Transparency</span></div>
-          <h3>Communication over surprises</h3>
-          <p>Regular updates, visible trade-offs, and decisions explained as they're made &mdash; not just at the milestones. If something changes, you hear it from us first, not from the deadline slipping.</p>
+          <h3>Decisions you can read</h3>
+          <p>Significant technical choices are written down with the options considered and the trade-offs, so you can see why, not just what.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW WE USE AI ===== -->
+  <section id="ai">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker"><span class="sheet-ref">A&ndash;05</span><span class="rule"></span></div>
+          <h2>What &ldquo;AI-accelerated&rdquo; actually means</h2>
+        </div>
+        <p style="max-width:38ch;color:var(--ink-soft);margin:0;">AI shortens the slow, repetitive parts of a build. It doesn't make the decisions &mdash; senior engineers do.</p>
+      </div>
+
+      <div class="cap-grid">
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Where it speeds us up</span></div>
+          <h3>The repetitive work</h3>
+          <ul class="scale-list">
+            <li>Scaffolding, boilerplate, and first drafts of routine code</li>
+            <li>Test generation and wider test coverage</li>
+            <li>Drafting migrations and refactors for an engineer to review</li>
+            <li>Documentation and getting up to speed on unfamiliar legacy code</li>
+          </ul>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Where people stay in charge</span></div>
+          <h3>The decisions that matter</h3>
+          <ul class="scale-list">
+            <li>Architecture, data modelling, and technology choices</li>
+            <li>Security-sensitive and business-critical logic</li>
+            <li>Review of every change by a senior engineer before it ships</li>
+          </ul>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Your data</span></div>
+          <h3>Handled with care</h3>
+          <p>Confidential data, credentials, and production records stay out of AI tools. If your company has a policy on AI use, we work within it &mdash; just tell us at the start.</p>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">What you get</span></div>
+          <h3>Speed without lower standards</h3>
+          <p>Faster first versions, more testing, and fewer surprises. The savings show up in the schedule, not in what we're willing to ship.</p>
         </article>
       </div>
     </div>
@@ -647,7 +766,7 @@ centrepiece instead of a stock photo or gradient blob.
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="section-kicker"><span class="sheet-ref">A&ndash;04</span><span class="rule"></span></div>
+          <div class="section-kicker"><span class="sheet-ref">A&ndash;06</span><span class="rule"></span></div>
           <h2>Who's behind it</h2>
         </div>
       </div>
@@ -656,8 +775,8 @@ centrepiece instead of a stock photo or gradient blob.
         <article class="person">
           <div class="initials">SP</div>
           <h3>Seetharaman Palanichamy</h3>
-          <div class="role">Advisor</div>
-          <p class="bio">Twenty-five years designing and running enterprise systems at scale &mdash; from ground-up architecture to the operational discipline that keeps large platforms available under real production load. SP advises SPAN Labs on architecture and engineering standards, so that same rigor goes into every project, whatever its size.</p>
+          <div class="role">Advisor &middot; Architecture &amp; engineering</div>
+          <p class="bio">Technology executive with 25+ years across retail and financial services, from hands-on Java engineering to leading architecture and engineering for a multi-brand enterprise. Has led globally distributed teams of 30+, delivered commerce platforms, marketplace integrations, and cloud modernization programs, and run round-the-clock production operations. TOGAF-certified, AWS Certified Machine Learning &ndash; Specialty, and a graduate of an executive program in generative and agentic AI at the University of Oxford.</p>
           <div class="linkedin"><a href="https://www.linkedin.com/in/seetharamanpalanichamy/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line-strong);">LinkedIn &rarr;</a></div>
         </article>
         <article class="person">
@@ -682,7 +801,7 @@ centrepiece instead of a stock photo or gradient blob.
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="section-kicker"><span class="sheet-ref">A&ndash;05</span><span class="rule"></span></div>
+          <div class="section-kicker"><span class="sheet-ref">A&ndash;07</span><span class="rule"></span></div>
           <h2>When people call us</h2>
         </div>
         <p style="max-width:38ch;color:var(--ink-soft);margin:0;">Different companies, same moment: something has to work, and it has to keep working. Sound familiar?</p>
@@ -723,12 +842,52 @@ centrepiece instead of a stock photo or gradient blob.
     </div>
   </section>
 
+  <!-- ===== WAYS TO START ===== -->
+  <section id="start-here">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker"><span class="sheet-ref">A&ndash;08</span><span class="rule"></span></div>
+          <h2>How engagements begin</h2>
+        </div>
+        <p style="max-width:38ch;color:var(--ink-soft);margin:0;">Most projects start with a short, fixed-scope piece of work, so the problem, the approach, and the risks are agreed before anything larger is built.</p>
+      </div>
+
+      <div class="cap-grid">
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">Architecture review</span></div>
+          <h3>A senior second opinion</h3>
+          <p class="lead-in">For a system you already run, or a plan you're about to commit to.</p>
+          <ul class="scale-list">
+            <li>Review of the architecture, scalability, security, and operational risks</li>
+            <li>Written findings with prioritized, practical recommendations</li>
+            <li>A walkthrough call to discuss the findings and next steps</li>
+            <li>Everything produced is yours to keep</li>
+          </ul>
+          <div class="card-cta"><a class="btn" href="#contact" data-interest="Architecture review">Discuss a review &rarr;</a></div>
+        </article>
+        <article class="cap-card">
+          <div class="tag-row"><span class="cap-class">2-week discovery sprint</span></div>
+          <h3>From idea to a plan you can act on</h3>
+          <p class="lead-in">For a new product or tool where the first question is what to build.</p>
+          <ul class="scale-list">
+            <li>Workshops to pin down goals, users, and the workflows that matter most</li>
+            <li>The smallest valuable first version, defined and prioritized</li>
+            <li>Architecture outline, technology choices, and key risks</li>
+            <li>A phased delivery plan with an estimate range</li>
+          </ul>
+          <div class="card-cta"><a class="btn" href="#contact" data-interest="2-week discovery sprint">Discuss a sprint &rarr;</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CONTACT ===== -->
   <section id="contact">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="section-kicker"><span class="sheet-ref">A&ndash;06</span><span class="rule"></span></div>
+          <div class="section-kicker"><span class="sheet-ref">A&ndash;09</span><span class="rule"></span></div>
           <h2>Start a project</h2>
         </div>
       </div>
@@ -736,7 +895,10 @@ centrepiece instead of a stock photo or gradient blob.
       <div class="contact-grid">
         <div>
           <p style="color:var(--ink-soft);max-width:40ch;">Tell us what you're building &mdash; from a quick business automation to a multi-tier enterprise system. We'll talk scope, approach, and cost together; every project is different, so let's start with a conversation, not a quote.</p>
-          <p class="fallback-note">Prefer email? Write directly to <a href="mailto:spanlabs.tech@gmail.com">spanlabs.tech@gmail.com</a>.</p>
+          <p class="reply-note" style="text-align:left;">We reply within one business day.</p>
+          <p style="margin:26px 0 12px;color:var(--ink-soft);max-width:40ch;">Would rather talk it through? Pick a time that suits you.</p>
+          <a class="btn" href="https://calendly.com/spanlabs-tech" target="_blank" rel="noopener noreferrer">Book a 20-minute call &rarr;</a>
+          <p class="fallback-note">Prefer email? Write directly to <a href="mailto:hello@spanlabs.tech">hello@spanlabs.tech</a>.</p>
         </div>
 
         <!-- Submits to Formspree. The action/method work with JS disabled;
@@ -756,16 +918,37 @@ centrepiece instead of a stock photo or gradient blob.
             <input id="company" name="company" type="text" />
           </div>
           <div class="field">
+            <label for="interest">I'm interested in</label>
+            <select id="interest" name="interest">
+              <option value="Not sure yet">Not sure yet</option>
+              <option value="Architecture review">Architecture review</option>
+              <option value="2-week discovery sprint">2-week discovery sprint</option>
+              <option value="Custom build">A custom build</option>
+              <option value="Modernizing an existing system">Modernizing an existing system</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="timeline">Timeline (optional)</label>
+            <select id="timeline" name="timeline">
+              <option value="">Not sure yet</option>
+              <option value="As soon as possible">As soon as possible</option>
+              <option value="Within 1-3 months">Within 1&ndash;3 months</option>
+              <option value="3-6 months">3&ndash;6 months</option>
+              <option value="Just exploring">Just exploring</option>
+            </select>
+          </div>
+          <div class="field">
             <label for="brief">What are you building?</label>
             <textarea id="brief" name="brief" required></textarea>
           </div>
           <button id="submit-btn" class="btn btn-primary" type="submit" style="width:100%;justify-content:center;">Send brief &rarr;</button>
+          <p class="reply-note">We reply within one business day. See our <a href="privacy.html" style="color:inherit;">privacy policy</a>.</p>
           <p id="form-error" class="form-error" role="alert" style="display:none;"></p>
         </form>
 
         <div id="form-success" class="form-success" style="display:none;" role="status">
           <p><strong>Thanks &mdash; got it.</strong></p>
-          <p>We'll get back to you shortly. If it's urgent, email <a href="mailto:spanlabs.tech@gmail.com">spanlabs.tech@gmail.com</a> directly.</p>
+          <p>We'll get back to you within one business day. If you'd rather talk now, <a href="https://calendly.com/spanlabs-tech" target="_blank" rel="noopener noreferrer">book a call</a>, or if it's urgent, email <a href="mailto:hello@spanlabs.tech">hello@spanlabs.tech</a> directly.</p>
         </div>
       </div>
     </div>
@@ -775,13 +958,85 @@ centrepiece instead of a stock photo or gradient blob.
 
 <footer>
   <div class="wrap footer-inner">
-    <span>&copy; <span id="year"></span> SPAN Labs LLC</span>
-    <span>Service &middot; Quality &middot; Transparency</span>
+    <span>&copy; <span id="year"></span> SPAN Labs LLC &middot; Cary, North Carolina, USA</span>
+    <span><a href="privacy.html">Privacy policy</a> &middot; <button type="button" class="footer-link-btn" id="cookie-settings">Cookie settings</button> &middot; <a href="mailto:hello@spanlabs.tech">hello@spanlabs.tech</a></span>
   </div>
 </footer>
 
+<div id="consent" class="consent" role="dialog" aria-label="Cookie preferences" aria-live="polite">
+  <p>We use Google Analytics cookies to see which pages and actions are useful. Nothing is loaded unless you accept. <a href="privacy.html">Privacy policy</a></p>
+  <div class="consent-actions">
+    <button type="button" class="btn btn-primary" id="consent-accept">Accept</button>
+    <button type="button" class="btn" id="consent-decline">Decline</button>
+  </div>
+</div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- analytics (GA4, loaded only after consent) ---------- */
+  (function () {
+    var GA_ID = 'G-37Y7H6QDG7';
+    var KEY = 'spanlabs_analytics_consent';
+    var banner = document.getElementById('consent');
+    var loaded = false;
+
+    function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function write(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+
+    function loadGA() {
+      if (loaded) return;
+      loaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID);
+      var el = document.createElement('script');
+      el.async = true;
+      el.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(el);
+    }
+
+    // Safe to call anywhere: does nothing unless the visitor accepted.
+    window.track = function (name, params) {
+      if (loaded && window.gtag) { window.gtag('event', name, params || {}); }
+    };
+
+    function show() { banner.classList.add('show'); }
+    function hide() { banner.classList.remove('show'); }
+
+    document.getElementById('consent-accept').addEventListener('click', function () { write('granted'); hide(); loadGA(); });
+    document.getElementById('consent-decline').addEventListener('click', function () {
+      write('denied'); hide();
+      // Declining after accepting: stop collection and clear GA cookies for this session.
+      if (loaded) { window['ga-disable-' + GA_ID] = true; }
+    });
+    document.getElementById('cookie-settings').addEventListener('click', show);
+
+    var saved = read();
+    if (saved === 'granted') { loadGA(); }
+    else if (saved !== 'denied') { show(); }
+    if (location.hash === '#cookie-settings') { show(); }
+
+    // Event tracking
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.indexOf('calendly.com') !== -1) { window.track('schedule_call_click', { link_location: a.closest('#contact') ? 'contact_section' : 'other' }); }
+      else if (a.hasAttribute('data-interest')) { window.track('offer_click', { offer: a.getAttribute('data-interest') }); }
+      else if (href === '#contact') { window.track('start_project_click'); }
+      else if (href.indexOf('linkedin.com') !== -1) { window.track('linkedin_click'); }
+    });
+  })();
+
+  (function () {
+    var sel = document.getElementById('interest');
+    if (!sel) return;
+    document.querySelectorAll('a[data-interest]').forEach(function (a) {
+      a.addEventListener('click', function () { sel.value = a.getAttribute('data-interest'); });
+    });
+  })();
 
   (function () {
     var form = document.getElementById('contact-form');
@@ -805,6 +1060,7 @@ centrepiece instead of a stock photo or gradient blob.
           if (response.ok) {
             form.style.display = 'none';
             successEl.style.display = 'block';
+            if (window.track) { window.track('generate_lead', { interest: (form.elements['interest'] || {}).value || '' }); }
             return;
           }
           return response.json().then(function (data) {

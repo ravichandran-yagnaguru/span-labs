@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" fill="none" stroke="#7a5c24" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="SPaN Labs mark">
+  <path d="M4 56 L24 14 Q60 66 96 14 L116 56" stroke-width="3"/>
+  <path d="M24 12 V68 M96 12 V68" stroke-width="4"/>
+  <path d="M36 28.4 V56 M48 37.1 V56 M60 40 V56 M72 37.1 V56 M84 28.4 V56" stroke-width="2"/>
+  <path d="M0 56 H120" stroke="#16273d" stroke-width="3"/>
+</svg>
