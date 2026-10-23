@@ -109,7 +109,7 @@ centrepiece instead of a stock photo or gradient blob.
     color: var(--ink);
     font-family: var(--font-body);
     font-size: 16px;
-    line-height: 1.65;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -141,6 +141,7 @@ centrepiece instead of a stock photo or gradient blob.
   }
 
   h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; }
+  h2, h3 { line-height: 1.25; }
   h1 { letter-spacing: -0.01em; }
 
   .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
@@ -226,26 +227,28 @@ centrepiece instead of a stock photo or gradient blob.
   }
 
   /* ---------- section scaffolding ---------- */
-  section { padding: 96px 0; border-bottom: 1px solid var(--line); }
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
   section:last-of-type { border-bottom: none; }
   .section-head {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 24px;
-    margin-bottom: 48px;
+    margin-bottom: 28px;
     flex-wrap: wrap;
   }
   .section-head h2 { font-size: clamp(1.5rem, 2.2vw + 1rem, 2.1rem); }
-  .section-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .section-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
   .section-kicker .rule { flex: 1; height: 1px; background: var(--line); max-width: 60px; }
 
+  @media (max-width: 760px) { section { padding: 40px 0; } .section-head { margin-bottom: 20px; } .cap-card { padding: 20px; } }
+
   /* ---------- hero ---------- */
-  .hero { padding-top: 72px; padding-bottom: 88px; }
+  .hero { padding-top: 40px; padding-bottom: 48px; }
   .hero-grid {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
-    gap: 56px;
+    gap: 40px;
     align-items: center;
   }
   @media (max-width: 900px) {
@@ -275,7 +278,7 @@ centrepiece instead of a stock photo or gradient blob.
   .plate::after { bottom: -1px; right: -1px; border-bottom: 2px solid var(--brass); border-right: 2px solid var(--brass); }
 
   /* ---------- motto ---------- */
-  .motto { padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .motto { padding: 14px 0; border-bottom: 1px solid var(--line); }
   .motto-inner {
     display: flex;
     justify-content: center;
@@ -292,7 +295,7 @@ centrepiece instead of a stock photo or gradient blob.
   .motto-inner .motto-sep { color: var(--brass); }
 
   /* ---------- stats ---------- */
-  .stats { padding: 40px 0; border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .stats { padding: 24px 0; border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); }
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -311,9 +314,14 @@ centrepiece instead of a stock photo or gradient blob.
     border: 1px solid var(--line);
   }
   @media (max-width: 760px) { .cap-grid { grid-template-columns: 1fr; } }
+  @media (min-width: 1100px) {
+    .cap-grid:has(> :nth-child(4):last-child) { grid-template-columns: repeat(4, 1fr); }
+    .cap-grid:has(> :nth-child(6):last-child) { grid-template-columns: repeat(3, 1fr); }
+  }
+
   .cap-card {
     background: var(--bg);
-    padding: 32px;
+    padding: 24px 28px;
   }
   .cap-card .tag-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
   .cap-card .cap-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-faint); }
@@ -336,12 +344,12 @@ centrepiece instead of a stock photo or gradient blob.
   .team-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+    gap: 20px;
   }
   @media (max-width: 760px) { .team-grid { grid-template-columns: 1fr; } }
   .person {
     border: 1px solid var(--line);
-    padding: 30px;
+    padding: 24px;
     background: var(--card-bg);
   }
   .person .initials {
@@ -417,7 +425,7 @@ centrepiece instead of a stock photo or gradient blob.
   }
 
   /* ---------- footer ---------- */
-  footer { padding: 40px 0; }
+  footer { padding: 28px 0; }
   .footer-inner {
     display: flex;
     justify-content: space-between;
